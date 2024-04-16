@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="invoice.css">
+    <title>invoice-builder</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="invoice">
+            <h1 style="margin-top: 4rem;text-align: center;">Free invoice builder</h1>
+            <h2 style="color: gray;margin-bottom: 5rem;text-align: center;">Build and download free invoices</h2>
+            <h4 class="form-details">Invoice Details</h4>
+            <form id="invoicedetails">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="invoiceTitle">Invoice Title:</label>
+                        <input type="text" class="form-control" id="invoiceTitle" name="invoiceTitle" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="invoiceNumber">Invoice Number:</label>
+                        <input type="text" class="form-control" id="invoiceNumber" name="invoiceNumber" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="invoiceDate">Register Date:</label>
+                        <input type="date" class="form-control" id="invoiceDate" name="invoiceDate" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="currency">Currency:</label>
+                        <select class="form-control" id="currency" name="currency">
+                            <option value="Toman">Toman</option>
+                            <option value="Rials">Rials</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <br><br>
+            <h4 class="form-details">Seller Details</h4>
+            <form id="sellerdetails">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="sellerName">Seller Name:</label>
+                        <input type="text" class="form-control" id="sellerName" name="sellerName" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="sellerNumber">Seller Number:</label>
+                        <input type="text" class="form-control" id="sellerNumber" name="sellerNumber" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="sellerAddress">Seller Address:</label>
+                        <input type="text" class="form-control" id="sellerAddress" name="sellerAddress" required>
+                    </div>
+                </div>
+            </form>
+
+            <br><br>
+            <h4 class="form-details">Customer Details</h4>
+            <form id="customerdetails">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="customerName">Customer Name:</label>
+                        <input type="text" class="form-control" id="customerName" name="customerName" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="customerNumber">Seller Number:</label>
+                        <input type="text" class="form-control" id="customerNumber" name="customerNumber" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="customerAddress">Seller Address:</label>
+                        <input type="text" class="form-control" id="customerAddress" name="customerAddress" required>
+                    </div>
+                </div>
+            </form>
+
+
+            <br><br>
+            <h4 class="form-details">Commodity Details</h4>
+            <form id="commoditydetails">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="commoditName">Commodity Name:</label>
+                        <input type="text" class="form-control" id="commoditName" name="commoditName" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="customerNo">Seller No:</label>
+                        <input type="text" class="form-control" id="customerNo" name="customerNo" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="unitprice">Unit Price:</label>
+                        <input type="text" class="form-control" id="unitprice" name="unitprice" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="discount">Discount:</label>
+                        <input type="text" class="form-control" id="discount" name="discount" >
+                    </div>
+                    <div class="col-md-2">
+                        <label for="totalprice">Total Price:</label>
+                        <input type="text" class="form-control" id="totalprice" name="totalprice" required>
+                    </div>
+                    
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="commoditdescription">Commodity Description:</label>
+                        <input type="text" class="form-control" id="commoditdescription" name="commoditdescription" >
+                    </div>
+                </div>
+                <br>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary" style="background-color: #4CAF50; border-color: #4CAF50;" >Add Goods</button>
+        </div>
+    </div>
+            </form>
+            <br><br>
+
+            <div class="results">
+                <p class="Sum" style="font-size: 1.5rem; font-weight: 600;">Sum : 0</p>
+                <p class="Discount" style="font-size: 1.5rem; font-weight: 600;">Discount : 0</p>
+                <p class="finalprice" style="font-size: 1.5rem; font-weight: 600;">Final Price : 0</p>
+                
+            </div>
+            <br><br>
+
+            <form id="photoUploadForm">
+                <div class="row">
+                    <div class="col-md-4 uploading">
+                        <label for="photo1">Upload Logo</label>
+                        <input type="file" class="form-control-file" id="photo1" name="photo1" accept="image/*" required>
+                    </div>
+                    <div class="col-md-4 uploading">
+                        <label for="photo2">Upload Customer's sign</label>
+                        <input type="file" class="form-control-file" id="photo2" name="photo2" accept="image/*" required>
+                    </div>
+                </div>
+                
+            </form>
+            <br></br>
+            <div class="text-center"> 
+                <button type="button" class="btn btn-primary submit-all-forms" style="background-color: #4CAF50; border-color: #4CAF50;">Submit And Download</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="invoice.js"></script> -->
+</body>
+</html>
