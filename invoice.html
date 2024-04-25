@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa-IR" layout-dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,146 +8,158 @@
     <title>invoice-builder</title>
     
 </head>
-<body>
+<body >
     <div class="container">
         <div class="invoice">
-            <h1 style="margin-top: 4rem;text-align: center;">Free invoice builder</h1>
-            <h2 style="color: gray;margin-bottom: 5rem;text-align: center;">Build and download free invoices</h2>
-            <h4 class="form-details">Invoice Details</h4>
-            <form id="invoicedetails">
-                <div class="row">
-                    <div class="col-md-3">
-                        <label for="invoiceTitle">Invoice Title:</label>
-                        <input type="text" class="form-control" id="invoiceTitle" name="invoiceTitle" required>
+            <h2 style="margin-top: 4rem;text-align: center;">فاکتور ساز رایگان</h2>
+            <h4 style="color: gray;margin-bottom: 5rem;text-align: center;">فاکتور های رایگان بساز و دانلود کن</h4>
+            <div class="formcontains">
+                <h5 class="form-details">مشخصات فاکتور</h5>
+                <form id="invoicedetails">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="invoiceTitle">عنوان</label>
+                            <input type="text" class="form-control" id="invoiceTitle" name="invoiceTitle" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="invoiceNumber">شماره فاکتور</label>
+                            <input type="text" class="form-control" id="invoiceNumber" name="invoiceNumber" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="invoiceDate">تاریخ ثبت</label>
+                            <input type="date" class="form-control" id="invoiceDate" name="invoiceDate">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="currency">نوع قیمت</label>
+                            <select class="form-control" id="currency" name="currency">
+                                <option value="Toman">تومان</option>
+                                <option value="Rials">ریال</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="invoiceNumber">Invoice Number:</label>
-                        <input type="text" class="form-control" id="invoiceNumber" name="invoiceNumber" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="invoiceDate">Register Date:</label>
-                        <input type="date" class="form-control" id="invoiceDate" name="invoiceDate" required>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="currency">Currency:</label>
-                        <select class="form-control" id="currency" name="currency">
-                            <option value="Toman">Toman</option>
-                            <option value="Rials">Rials</option>
-                        </select>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
             <br><br>
-            <h4 class="form-details">Seller Details</h4>
-            <form id="sellerdetails">
-                <div class="row">
-                    <div class="col-md-3">
-                        <label for="sellerName">Seller Name:</label>
-                        <input type="text" class="form-control" id="sellerName" name="sellerName" required>
+            <div class="formcontains">
+                <h5 class="form-details">مشخصات فروشنده</h5>
+                <form id="sellerdetails">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="sellerName">نام فروشنده</label>
+                            <input type="text" class="form-control" id="sellerName" name="sellerName" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="sellerNumber">تلفن همراه</label>
+                            <input type="text" class="form-control" id="sellerNumber" name="sellerNumber" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="sellerAddress">آدرس</label>
+                            <input type="text" class="form-control" id="sellerAddress" name="sellerAddress" >
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="sellerNumber">Seller Number:</label>
-                        <input type="text" class="form-control" id="sellerNumber" name="sellerNumber" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="sellerAddress">Seller Address:</label>
-                        <input type="text" class="form-control" id="sellerAddress" name="sellerAddress" required>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
+            
 
             <br><br>
-            <h4 class="form-details">Customer Details</h4>
-            <form id="customerdetails">
-                <div class="row">
-                    <div class="col-md-3">
-                        <label for="customerName">Customer Name:</label>
-                        <input type="text" class="form-control" id="customerName" name="customerName" required>
+            <div class="formcontains">
+                <h5 class="form-details">مشخصات خریدار</h5>
+                <form id="customerdetails">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="customerName">نام خریدار</label>
+                            <input type="text" class="form-control" id="customerName" name="customerName" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="customerNumber">تلفن همراه</label>
+                            <input type="text" class="form-control" id="customerNumber" name="customerNumber" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="customerAddress">آدرس</label>
+                            <input type="text" class="form-control" id="customerAddress" name="customerAddress" >
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="customerNumber">Seller Number:</label>
-                        <input type="text" class="form-control" id="customerNumber" name="customerNumber" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="customerAddress">Seller Address:</label>
-                        <input type="text" class="form-control" id="customerAddress" name="customerAddress" required>
-                    </div>
-                </div>
-            </form>
-
+                </form>
+            </div>
+            
 
             <br><br>
-            <h4 class="form-details">Commodity Details</h4>
-            <form id="commoditydetails">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label for="commoditName">Commodity Name:</label>
-                        <input type="text" class="form-control" id="commoditName" name="commoditName" required>
+            <div class="formcontains">
+                <h5 class="form-details">شرح کالا/خدمات</h5>
+                <form id="commoditydetails">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="commoditName">نام کالا</label>
+                            <input type="text" class="form-control" id="commoditName" name="commoditName" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="customerNo">تعداد</label>
+                            <input type="text" class="form-control" id="customerNo" name="customerNo" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="unitprice">قیمت واحد</label>
+                            <input type="text" class="form-control" id="unitprice" name="unitprice" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="discount">تخفیف</label>
+                            <input type="text" class="form-control" id="discount" name="discount" >
+                        </div>
+                        <div class="col-md-2">
+                            <label for="totalprice">قیمت کل</label>
+                            <input type="text" class="form-control" id="totalprice" name="totalprice" >
+                        </div>
+                        
                     </div>
-                    <div class="col-md-2">
-                        <label for="customerNo">Seller No:</label>
-                        <input type="text" class="form-control" id="customerNo" name="customerNo" required>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="commoditdescription">شرح کالا/خدمات</label>
+                            <input type="text" class="form-control" id="commoditdescription" name="commoditdescription" >
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <label for="unitprice">Unit Price:</label>
-                        <input type="text" class="form-control" id="unitprice" name="unitprice" required>
-                    </div>
-                    <div class="col-md-2">
-                        <label for="discount">Discount:</label>
-                        <input type="text" class="form-control" id="discount" name="discount" >
-                    </div>
-                    <div class="col-md-2">
-                        <label for="totalprice">Total Price:</label>
-                        <input type="text" class="form-control" id="totalprice" name="totalprice" required>
-                    </div>
-                    
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label for="commoditdescription">Commodity Description:</label>
-                        <input type="text" class="form-control" id="commoditdescription" name="commoditdescription" >
-                    </div>
-                </div>
-                <br>
-    <div class="row">
-        <div class="col-md-12">
-            <button type="submit" class="btn btn-primary" style="background-color: #4CAF50; border-color: #4CAF50;" >Add Goods</button>
+                    <br>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary" style="background-color: #4CAF50; border-color: #4CAF50;" >افزودن کالا</button>
+            </div>
         </div>
-    </div>
-            </form>
+    </form>
+            </div>
+            
+            
             <br><br>
 
             <div class="results">
-                <p class="Sum" style="font-size: 1.5rem; font-weight: 600;">Sum : 0</p>
-                <p class="Discount" style="font-size: 1.5rem; font-weight: 600;">Discount : 0</p>
-                <p class="finalprice" style="font-size: 1.5rem; font-weight: 600;">Final Price : 0</p>
+                <p class="Sum" style="font-size: 1.5rem; font-weight: 600;">مجموع : 0</p>
+                <p class="Discount" style="font-size: 1.5rem; font-weight: 600;">تخفیف : 0</p>
+                <p class="finalprice" style="font-size: 1.5rem; font-weight: 600;">قیمت نهایی : 0</p>
                 
             </div>
             <br><br>
-
+<div class="formcontains">
             <form id="photoUploadForm">
                 <div class="row">
                     <div class="col-md-4 uploading">
                         <label for="photo1">Upload Logo</label>
-                        <input type="file" class="form-control-file" id="photo1" name="photo1" accept="image/*" required>
+                        <input type="file" class="form-control-file" id="photo1" name="photo1" accept="image/*">
                     </div>
                     <div class="col-md-4 uploading">
                         <label for="photo2">Upload Customer's sign</label>
-                        <input type="file" class="form-control-file" id="photo2" name="photo2" accept="image/*" required>
+                        <input type="file" class="form-control-file" id="photo2" name="photo2" accept="image/*">
                     </div>
                 </div>
                 
             </form>
+        </div>
             <br></br>
             <div class="text-center"> 
-                <button type="button" class="btn btn-primary submit-all-forms" style="background-color: #4CAF50; border-color: #4CAF50;">Submit And Download</button>
+                <button type="button" class="btn btn-primary submit-all-forms" style="background-color: #4CAF50; border-color: #4CAF50;">تایید و دانلود</button>
             </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- <script src="invoice.js"></script> -->
+    <script src="invoice.js"></script>
 </body>
 </html>
