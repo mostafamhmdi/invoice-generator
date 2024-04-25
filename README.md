@@ -1,2 +1,2 @@
 # invoice-builder
-open source invoice builder website project
+open source invoice generator website project
