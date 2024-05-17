@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+.container{
+    padding: 1rem;
+    border: 1px solid red;
+}
+input{
+    margin: 0.5rem;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="/submit" method="get">
+            <label for="name">First Name:</label>
+            <input type="text" id="name" name="name"><br>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname"><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>
