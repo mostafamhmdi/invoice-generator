@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="invoice.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-date/dist/persian-date.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker/dist/css/persian-datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/persian-date/dist/persian-date.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/persian-datepicker/dist/js/persian-datepicker.min.js"></script>
     <title>invoice-builder</title>
-    
 </head>
-<body >
+<body>
     <div class="container">
         <div class="invoice">
-            <h2 style="margin-top: 4rem;text-align: center;">فاکتور ساز رایگان</h2>
-            <h4 style="color: gray;margin-bottom: 5rem;text-align: center;">فاکتور های رایگان بساز و دانلود کن</h4>
+            <h2 style="margin-top: 4rem; text-align: center;">فاکتور ساز رایگان</h2>
+            <h4 style="color: gray; margin-bottom: 5rem; text-align: center;">فاکتور های رایگان بساز و دانلود کن</h4>
             <div class="formcontains">
                 <h5 class="form-details">مشخصات فاکتور</h5>
                 <form id="invoicedetails">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label for="invoiceTitle">عنوان</label>
                             <input type="text" class="form-control" id="invoiceTitle" name="invoiceTitle" required>
                         </div>
-                        <div class="col-md-3">
-                            <label for="invoiceNumber">شماره فاکتور</label>
-                            <input type="text" class="form-control" id="invoiceNumber" name="invoiceNumber" required>
-                        </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label for="invoiceDate">تاریخ ثبت</label>
-                            <input type="date" class="form-control" id="invoiceDate" name="invoiceDate">
+                            <input type="text" class="form-control" id="invoiceDate" name="invoiceDate">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <label for="currency">نوع قیمت</label>
                             <select class="form-control" id="currency" name="currency">
                                 <option value="Toman">تومان</option>
@@ -54,13 +54,11 @@
                         </div>
                         <div class="col-md-6">
                             <label for="sellerAddress">آدرس</label>
-                            <input type="text" class="form-control" id="sellerAddress" name="sellerAddress" >
+                            <input type="text" class="form-control" id="sellerAddress" name="sellerAddress">
                         </div>
                     </div>
                 </form>
             </div>
-            
-
             <br><br>
             <div class="formcontains">
                 <h5 class="form-details">مشخصات خریدار</h5>
@@ -76,13 +74,11 @@
                         </div>
                         <div class="col-md-6">
                             <label for="customerAddress">آدرس</label>
-                            <input type="text" class="form-control" id="customerAddress" name="customerAddress" >
+                            <input type="text" class="form-control" id="customerAddress" name="customerAddress">
                         </div>
                     </div>
                 </form>
             </div>
-            
-
             <br><br>
             <div class="formcontains">
                 <h5 class="form-details">شرح کالا/خدمات</h5>
@@ -102,64 +98,67 @@
                         </div>
                         <div class="col-md-2">
                             <label for="discount">تخفیف</label>
-                            <input type="text" class="form-control" id="discount" name="discount" >
+                            <input type="text" class="form-control" id="discount" name="discount">
                         </div>
                         <div class="col-md-2">
                             <label for="totalprice">قیمت کل</label>
-                            <input type="text" class="form-control" id="totalprice" name="totalprice" >
+                            <input type="text" class="form-control" id="totalprice" name="totalprice">
                         </div>
-                        
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-12">
                             <label for="commoditdescription">شرح کالا/خدمات</label>
-                            <input type="text" class="form-control" id="commoditdescription" name="commoditdescription" >
+                            <input type="text" class="form-control" id="commoditdescription" name="commoditdescription">
                         </div>
                     </div>
                     <br>
-        <div class="row">
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary" style="background-color: #4CAF50; border-color: #4CAF50;" >افزودن کالا</button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary" style="background-color: #4CAF50; border-color: #4CAF50;">افزودن کالا</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </div>
-    </form>
-            </div>
-            
-            
             <br><br>
-
             <div class="results">
                 <p class="Sum" style="font-size: 1.5rem; font-weight: 600;">مجموع : 0</p>
                 <p class="Discount" style="font-size: 1.5rem; font-weight: 600;">تخفیف : 0</p>
                 <p class="finalprice" style="font-size: 1.5rem; font-weight: 600;">قیمت نهایی : 0</p>
-                
             </div>
             <br><br>
-<div class="formcontains">
-            <form id="photoUploadForm">
-                <div class="row">
-                    <div class="col-md-4 uploading">
-                        <label for="photo1">Upload Logo</label>
-                        <input type="file" class="form-control-file" id="photo1" name="photo1" accept="image/*">
+
+            <div class="formcontains">
+                <h6 style="margin: 0;padding: 0;" class="form-details">تاییدیه</h6>
+                <form id="photoUploadForm">
+                    <div class="row">
+                        <div class="col-md-4 uploading">
+                            <label for="photo1">لوگو</label>
+                            <input type="file" class="form-control-file" id="photo1" name="photo1" accept="image/*">
+                        </div>
+                        <div class="col-md-4 uploading">
+                            <label for="photo2">امضای فروشنده</label>
+                            <input type="file" class="form-control-file" id="photo2" name="photo2" accept="image/*">
+                        </div>
                     </div>
-                    <div class="col-md-4 uploading">
-                        <label for="photo2">Upload Customer's sign</label>
-                        <input type="file" class="form-control-file" id="photo2" name="photo2" accept="image/*">
-                    </div>
-                </div>
-                
-            </form>
-        </div>
-            <br></br>
-            <div class="text-center"> 
+                </form>
+            </div>
+            <br>
+            <div class="text-center">
                 <button type="button" class="btn btn-primary submit-all-forms" style="background-color: #4CAF50; border-color: #4CAF50;">تایید و دانلود</button>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#invoiceDate').persianDatepicker({
+                format: 'YYYY/MM/DD'
+            });
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="invoice.js"></script>
 </body>
 </html>
+
