@@ -1,3 +1,4 @@
+// import initDatabase from '../database.js';
 $(document).ready(function() {
     function isFormFilled(form) {
         var isValid = true;
@@ -100,3 +101,25 @@ $(document).on('click', '.submit-all-forms', function() {
 });
 
 
+
+// const invoiceForm = document.getElementById('invoiceForm');
+
+// invoiceForm.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+//     const db = await initDatabase();
+//     const invoiceId = document.getElementById('invoiceId').value;
+//     const customerId = document.getElementById('customerId').value;
+//     const sellerId = document.getElementById('sellerId').value;
+//     const items = JSON.parse(document.getElementById('items').value);
+//     const totalAmount = parseFloat(document.getElementById('totalAmount').value);
+
+//     await db.invoices.insert({
+//         id: invoiceId,
+//         customerId: customerId,
+//         sellerId: sellerId,
+//         items: items,
+//         totalAmount: totalAmount,
+//     });
+
+//     alert('Invoice added!');
+// });

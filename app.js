@@ -1,29 +1,47 @@
-var httpserver = require('http')
-var files = require('fs');
-var url = require('url');
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const initDatabase = require('./db'); // Import the initDatabase function
 
+const app = express();
+const port = 8000;
 
-function getrequest(req,res){
-    console.log("Request from:"+ req.url);
-    if(req.url=="/"){
-        let form = files.readFileSync("./invoice.html","utf8")
-        res.write(form)
-    }
+app.use('/styles', express.static(path.join(__dirname, 'styles')));
+app.use('/scripts', express.static(path.join(__dirname, 'scripts')));
 
-    else{
-        var Uurl = url.parse(req.url, true);
-        var firstname = Uurl.query.name;
-        var lastname = Uurl.query.lname;
-        files.appendFile('myText.txt',firstname+ " "+ lastname+ "\n",function(err){
-            if (err) throw err;
-            console.log('Saved!')
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'invoice.html'));
+});
+
+app.get('/submit', (req, res) => {
+    const firstname = req.query.name;
+    const lastname = req.query.lname;
+    fs.appendFile('myText.txt', firstname + ' ' + lastname + '\n', function(err) {
+        if (err) throw err;
+        console.log('Saved!');
+    });
+    res.send(`Hi ${firstname} ${lastname}!`);
+});
+
+app.get('/buyer.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'buyer.html'));
+});
+
+app.get('/seller.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'seller.html'));
+});
+
+async function startServer() {
+    try {
+        await initDatabase(); // Initialize the database
+        console.log('Database initialized successfully');
+        
+        app.listen(port, () => {
+            console.log(`Server is running on http://localhost:${port}/`);
         });
-        res.write("Hi "+ firstname +" "+lastname+ " !")
-        res.end();
+    } catch (error) {
+        console.error('Failed to initialize database', error);
     }
-
-    res.end();
 }
 
-var server = httpserver.createServer(getrequest);
-server.listen(8000);
+startServer(); // Start the server

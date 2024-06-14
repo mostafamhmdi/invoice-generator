@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/buyer.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <title>افزودن خریدار</title>
 </head>
 <body>
@@ -16,28 +17,28 @@
                 <form id="custdetails">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="selerName">نام</label>
-                            <input type="text" class="form-control" id="selerName" name="selerName" required>
+                            <label for="customerName">نام</label>
+                            <input type="text" class="form-control" id="customerName" name="customerName" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="selerfamily">نام خانوادگی</label>
-                            <input type="text" class="form-control" id="selerfamily" name="selerfamily" required>
+                            <label for="customerfamily">نام خانوادگی</label>
+                            <input type="text" class="form-control" id="customerfamily" name="customerfamily" required>
                         </div>
                         <div class="col-md-4">
                             <label for="id-code">کد ملی</label>
                             <input type="text" class="form-control" id="id-code" name="id-code" required>
                         </div>
                         <div class="col-md-4">
-                            <label for="selerNumber">شماره تلفن</label>
-                            <input type="text" class="form-control" id="selerNumber" name="selerNumber">
+                            <label for="customerNumber">شماره تلفن</label>
+                            <input type="text" class="form-control" id="customerNumber" name="customerNumber">
                         </div>
                         <div class="col-md-4">
-                            <label for="seleremail">ایمیل</label>
-                            <input type="email" class="form-control" id="seleremail" name="seleremail">
+                            <label for="customeremail">ایمیل</label>
+                            <input type="email" class="form-control" id="customeremail" name="customeremail">
                         </div>
                         <div class="col-md-12">
-                            <label for="sellerAddress">آدرس</label>
-                            <input type="text" class="form-control" id="sellerAddress" name="sellerAddress" style="height: 5rem;resize: none;padding: 0.2rem;">
+                            <label for="customerAddress">آدرس</label>
+                            <input type="text" class="form-control" id="customerAddress" name="customerAddress" style="height: 5rem;resize: none;padding: 0.2rem;">
                         </div>
                         <div class="col-md-12" style="margin-top: 1rem;">
                             <button type="submit" class="btn btn-primary">ثبت</button>
@@ -48,5 +49,6 @@
         </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module"  src="scripts/buyer.js"></script>
 </body>
 </html>
