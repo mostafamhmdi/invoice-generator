@@ -120,3 +120,16 @@ label{
 .menu-toggle.open .menu-items {
     display: block; 
 }
+
+
+input[type=text] {
+    
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    outline: none;
+  }
+
+input[type=text]:focus {
+    outline: none;
+    outline: 0.2rem solid #1BB088;/* Set border style to dashed */
+}

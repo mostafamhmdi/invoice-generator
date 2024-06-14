@@ -75,3 +75,23 @@ input{
   margin-bottom: 0.5rem;
   
 }
+
+input[type=text] {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    outline: none;
+  }
+
+input[type=text]:focus {
+    outline: 0.2rem solid #1BB088;/* Set border style to dashed */
+}
+input[type=email] {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    outline: none;
+  }
+
+input[type=email]:focus {
+    outline: 0.2rem solid #1BB088;/* Set border style to dashed */
+}
+
