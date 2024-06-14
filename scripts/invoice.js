@@ -34,27 +34,69 @@ $(document).ready(function() {
     $('#menu-icon').click(function() {
         $('.menu-toggle').toggleClass('open');
     });
+});
 
-    $(document).click(function(event) {
-        if (!$(event.target).closest('.menu-toggle').length) {
-            $('.menu-toggle').removeClass('open');
-        }
+function updateTotals() {
+    var totalQuantity = 0;
+    var totalDiscount = 0;
+    var totalFinalPrice = 0;
+
+    $('.commodity-form').each(function() {
+        var $form = $(this);
+        var quantity = parseFloat($form.find('#customerNo').val()) || 0;
+        var unitPrice = parseFloat($form.find('#unitprice').val()) || 0;
+        var discount = parseFloat($form.find('#discount').val()) || 0;
+        var finalPrice = parseFloat($form.find('#totalprice').val()) || 0;
+
+        var totalPrice = quantity * unitPrice;
+        var discountAmount = (discount / 100) * totalPrice;
+        var priceAfterDiscount = totalPrice - discountAmount;
+
+        totalQuantity += totalPrice; 
+        totalDiscount += discountAmount; 
+        totalFinalPrice += finalPrice; 
     });
 
-    $(document).on('click', '.add-commodity', function() {
-        var $form = $('.commodity-form').first().clone();
-        $form.find('input').val('');
-        $('#forms-container').append($form);
-    });
+    $('.Sum').text('مجموع : ' + totalQuantity.toFixed(2));
+    $('.Discount').text('تخفیف : ' + totalDiscount.toFixed(2));
+    $('.finalprice').text('قیمت نهایی : ' + totalFinalPrice.toFixed(2));
+}
 
-    $(document).on('click', '.remove-commodity', function() {
-        $(this).closest('.commodity-form').remove();
-    });
 
-    $(document).on('click', '.submit-all-forms', function() {
-        var allForms = $('#forms-container').find('form');
-        allForms.each(function(index, form) {
-            console.log($(form).serialize()); 
-        });
+updateTotals();
+
+$(document).on('click', '.add-commodity', function() {
+    var $form = $('.commodity-form').first().clone();
+    $form.find('input').val('');
+    $('#forms-container').append($form);
+    updateTotals(); 
+});
+
+$(document).on('click', '.remove-commodity', function() {
+    $(this).closest('.commodity-form').remove();
+    updateTotals(); 
+});
+
+$(document).on('input', '#customerNo, #unitprice, #discount', function() {
+    var $form = $(this).closest('.commodity-form');
+    var quantity = parseFloat($form.find('#customerNo').val()) || 0;
+    var unitPrice = parseFloat($form.find('#unitprice').val()) || 0;
+    var discount = parseFloat($form.find('#discount').val()) || 0;
+
+    var totalPrice = quantity * unitPrice;
+    var discountAmount = (discount / 100) * totalPrice;
+    var finalPrice = totalPrice - discountAmount;
+
+    $form.find('#totalprice').val(finalPrice.toFixed(2));
+
+    updateTotals(); 
+});
+
+$(document).on('click', '.submit-all-forms', function() {
+    var allForms = $('#forms-container').find('.commodity-form');
+    allForms.each(function(index, form) {
+        console.log($(form).serialize()); 
     });
 });
+
+
