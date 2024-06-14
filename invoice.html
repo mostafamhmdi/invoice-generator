@@ -13,7 +13,20 @@
     <title>invoice-builder</title>
 </head>
 <body>
+
+    <div class="menu-toggle">
+        <button id="menu-icon" class="btn btn-link" style="color: #ffffff;">
+            <span>&#9776;</span> 
+        </button>
+        <div id="menu-items" class="menu-items">
+            <a href="buyer.html">افزودن مشتری</a>
+            <a href="seller.html">افزودن خریدار</a>
+            <a href="#">تماس با ما</a>
+
+        </div>
+    </div>
     <div class="container">
+        
         <div class="invoice">
             <h2 style="margin-top: 4rem; text-align: center;">فاکتور ساز رایگان</h2>
             <h4 style="color: gray; margin-bottom: 5rem; text-align: center;">فاکتور های رایگان بساز و دانلود کن</h4>
@@ -49,7 +62,7 @@
                             <input type="text" class="form-control" id="sellerName" name="sellerName" required>
                         </div>
                         <div class="col-md-3">
-                            <label for="sellerNumber">تلفن همراه</label>
+                            <label for="sellerNumber">کد ملی</label>
                             <input type="text" class="form-control" id="sellerNumber" name="sellerNumber" required>
                         </div>
                         <div class="col-md-6">
@@ -69,7 +82,7 @@
                             <input type="text" class="form-control" id="customerName" name="customerName" required>
                         </div>
                         <div class="col-md-3">
-                            <label for="customerNumber">تلفن همراه</label>
+                            <label for="customerNumber">کد ملی</label>
                             <input type="text" class="form-control" id="customerNumber" name="customerNumber" required>
                         </div>
                         <div class="col-md-6">
@@ -155,6 +168,18 @@
                 format: 'YYYY/MM/DD'
             });
         });
+$(document).ready(function() {
+    $('#menu-icon').click(function() {
+        $('.menu-toggle').toggleClass('open');
+    });
+
+    $(document).click(function(event) {
+        if (!$(event.target).closest('.menu-toggle').length) {
+            $('.menu-toggle').removeClass('open');
+        }
+    });
+});
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -162,3 +187,6 @@
 </body>
 </html>
 
+
+
+ 
