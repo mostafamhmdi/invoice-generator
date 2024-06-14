@@ -22,7 +22,6 @@
             <a href="buyer.html">افزودن مشتری</a>
             <a href="seller.html">افزودن خریدار</a>
             <a href="#">تماس با ما</a>
-
         </div>
     </div>
     <div class="container">
@@ -95,43 +94,52 @@
             <br><br>
             <div class="formcontains">
                 <h5 class="form-details">شرح کالا/خدمات</h5>
-                <form id="commoditydetails">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="commoditName">نام کالا</label>
-                            <input type="text" class="form-control" id="commoditName" name="commoditName" required>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="customerNo">تعداد</label>
-                            <input type="text" class="form-control" id="customerNo" name="customerNo" required>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="unitprice">قیمت واحد</label>
-                            <input type="text" class="form-control" id="unitprice" name="unitprice" required>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="discount">تخفیف</label>
-                            <input type="text" class="form-control" id="discount" name="discount">
-                        </div>
-                        <div class="col-md-2">
-                            <label for="totalprice">قیمت کل</label>
-                            <input type="text" class="form-control" id="totalprice" name="totalprice">
-                        </div>
+                <div id="forms-container">
+                    <div class="commodity-form">
+                        <form class="commodity-details">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="commoditName">نام کالا</label>
+                                    <input type="text" class="form-control" id="commoditName" name="commoditName" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="customerNo">تعداد</label>
+                                    <input type="text" class="form-control" id="customerNo" name="customerNo" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="unitprice">قیمت واحد</label>
+                                    <input type="text" class="form-control" id="unitprice" name="unitprice" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="discount">تخفیف</label>
+                                    <input type="text" class="form-control" id="discount" name="discount">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="totalprice">قیمت کل</label>
+                                    <input type="text" class="form-control" id="totalprice" name="totalprice">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="commoditdescription">شرح کالا/خدمات</label>
+                                    <input type="text" class="form-control" id="commoditdescription" name="commoditdescription" style="height: 7rem;resize: none;padding: 0.2rem;">
+                                </div>
+                            </div>
+                        </form>
+                        <button type="button" class="btn btn-danger remove-commodity" style="margin: 10px;">حذف</button>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label for="commoditdescription">شرح کالا/خدمات</label>
-                            <input type="text" class="form-control" id="commoditdescription" name="commoditdescription" style="height: 7rem;resize: none;padding: 0.2rem;">
-                        </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary add-commodity" style="background-color: #4CAF50; border-color: #4CAF50;">افزودن کالا</button>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary" style="background-color: #4CAF50; border-color: #4CAF50;">افزودن کالا</button>
-                        </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary submit-all-forms" style="background-color: #4CAF50; border-color: #4CAF50;">ثبت نهایی</button>
                     </div>
-                </form>
+                    
+                </div>
             </div>
             <br><br>
             <div class="results">
@@ -162,31 +170,9 @@
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
-            $('#invoiceDate').persianDatepicker({
-                format: 'YYYY/MM/DD'
-            });
-        });
-$(document).ready(function() {
-    $('#menu-icon').click(function() {
-        $('.menu-toggle').toggleClass('open');
-    });
 
-    $(document).click(function(event) {
-        if (!$(event.target).closest('.menu-toggle').length) {
-            $('.menu-toggle').removeClass('open');
-        }
-    });
-});
-
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts/invoice.js"></script>
 </body>
 </html>
-
-
-
- 

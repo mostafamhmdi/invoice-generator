@@ -25,3 +25,36 @@ $(document).ready(function() {
         submitAllForms(); 
     });
 });
+
+$(document).ready(function() {
+    $('#invoiceDate').persianDatepicker({
+        format: 'YYYY/MM/DD'
+    });
+
+    $('#menu-icon').click(function() {
+        $('.menu-toggle').toggleClass('open');
+    });
+
+    $(document).click(function(event) {
+        if (!$(event.target).closest('.menu-toggle').length) {
+            $('.menu-toggle').removeClass('open');
+        }
+    });
+
+    $(document).on('click', '.add-commodity', function() {
+        var $form = $('.commodity-form').first().clone();
+        $form.find('input').val('');
+        $('#forms-container').append($form);
+    });
+
+    $(document).on('click', '.remove-commodity', function() {
+        $(this).closest('.commodity-form').remove();
+    });
+
+    $(document).on('click', '.submit-all-forms', function() {
+        var allForms = $('#forms-container').find('form');
+        allForms.each(function(index, form) {
+            console.log($(form).serialize()); 
+        });
+    });
+});
