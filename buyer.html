@@ -12,9 +12,9 @@
     <div class="container">
         <div class="invoice">
             <h2 style="margin-top: 2rem; text-align: center;margin-bottom: 2rem;">اطلاعات مشتری جدید را وارد کنید</h2>
-            <div class="custcontains">
+            <div class="custcontains" >
                 <h5 class="form-details" style="margin-bottom: 1rem;">مشخصات خریدار</h5>
-                <form id="custdetails">
+                <form id="custdetails" action="/buyer.html" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <label for="customerName">نام</label>
@@ -25,8 +25,8 @@
                             <input type="text" class="form-control" id="customerfamily" name="customerfamily" required>
                         </div>
                         <div class="col-md-4">
-                            <label for="id-code">کد ملی</label>
-                            <input type="text" class="form-control" id="id-code" name="id-code" required>
+                            <label for="idcode">کد ملی</label>
+                            <input type="text" class="form-control" id="idcode" name="idcode" required>
                         </div>
                         <div class="col-md-4">
                             <label for="customerNumber">شماره تلفن</label>
@@ -49,6 +49,6 @@
         </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="module"  src="scripts/buyer.js"></script>
+    <!-- <script  src="scripts/buyer.js"></script> -->
 </body>
 </html>
