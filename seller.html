@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa-IR" layout-dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/seller.css">
+    <title>افزودن فروشنده</title>
+</head>
+<body>
+    <div class="container">
+        <div class="invoice">
+            <h2 style="margin-top: 2rem; text-align: center;margin-bottom: 2rem;">اطلاعات فروشنده جدید را وارد کنید</h2>
+            <div class="custcontains">
+                <h5 class="form-details" style="margin-bottom: 1rem;">مشخصات فروشنده</h5>
+                <form id="custdetails">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="custName">نام</label>
+                            <input type="text" class="form-control" id="custName" name="custName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="custfamily">نام خانوادگی</label>
+                            <input type="text" class="form-control" id="custfamily" name="custfamily" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="id-code">کد ملی</label>
+                            <input type="text" class="form-control" id="id-code" name="id-code" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="custNumber">شماره تلفن</label>
+                            <input type="text" class="form-control" id="custNumber" name="custNumber">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="custemail">ایمیل</label>
+                            <input type="email" class="form-control" id="custemail" name="custemail">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="custAddress">آدرس</label>
+                            <input type="text" class="form-control" id="custAddress" name="custAddress">
+                        </div>
+                        <div class="col-md-12" style="margin-top: 1rem;">
+                            <button type="submit" class="btn btn-primary">ثبت</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

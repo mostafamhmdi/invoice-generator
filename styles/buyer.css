@@ -46,44 +46,32 @@ body {
     font-family: vazir;
     text-align: right;
 }
-
 .container {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 
 }
 .invoice {
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: #ffffff;
     border-radius: 3rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 label:has(+ input:required):after {
-    content: ' *';
-    color: red;
-  }
+  content: ' *';
+  color: red;
+}
 .formcontains{
     background-color: #F5F5F5;
     padding: 1rem;
     border: solid #b4b2b2 0.01rem ;
 }
-.form-details{
-    margin-bottom: 1.5rem;
-    direction: rtl;
-    
-}
 
-.uploading {
-    border: 2px dashed #999; 
-    margin: 1rem; 
-}
-.uploading label{
-    color: #4CAF50;
-    font-weight: 400;
-}
-.invoicedetails{
- font-size: 5rem;
-}
 label{
     font-size: 0.85rem;
+    
+}
+input{
+  margin-bottom: 0.5rem;
+  
 }
