@@ -34,6 +34,31 @@ app.get('/submit', (req, res) => {
     res.send(`Hi ${name} ${lname}!`);
 });
 
+app.get('/check-seller', (req, res) => {
+    const { idcode } = req.query;
+    db.get('SELECT * FROM sellers WHERE idcode = ?', [idcode], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (row) {
+            res.json(row);
+        } else {
+            res.status(404).json({ message: 'Seller not found' });
+        }
+    });
+});
+
+app.get('/check-buyer', (req, res) => {
+    const { idcode } = req.query;
+    db.get('SELECT * FROM customers WHERE idcode = ?', [idcode], (err, row) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+        } else if (row) {
+            res.json(row);
+        } else {
+            res.status(404).json({ message: 'Buyer not found' });
+        }
+    });
+});
 
 const appendDataToFile = (filename, data) => {
     fs.appendFile(filename, data + '\n', function(err) {
@@ -76,7 +101,6 @@ app.post('/seller.html', (req, res) => {
     );
 });
 
-
 app.post('/invoice.html', (req, res) => {
     const { 
         invoiceTitle, invoiceDate, currency, 
@@ -85,22 +109,29 @@ app.post('/invoice.html', (req, res) => {
         commoditName, customerNo, unitprice, discount, 
         totalprice, commoditdescription 
     } = req.body;
-    const invoiceData = `Invoice: ${invoiceTitle} ${invoiceDate} ${currency}, Seller: ${sellerNumber} ,Buyer: ${customerNumber} ,Good: ${commoditName} ${customerNo} ${unitprice} ${totalprice} ${commoditdescription}`;
+    
+    const unitPrice = parseFloat(unitprice);
+    const customerNoValue = parseInt(customerNo);
+    const discountValue = discount ? parseFloat(discount) : 0;
+
+    const calculatedTotalPrice = unitPrice * customerNoValue;
+    const discountAmount = (discountValue / 100) * calculatedTotalPrice;
+
+    const invoiceData = `Invoice: ${invoiceTitle} ${invoiceDate} ${currency}, Seller: ${sellerNumber} ,Buyer: ${customerNumber} ,Good: ${commoditName} ${customerNo} ${unitprice} ${discountAmount} ${calculatedTotalPrice} ${commoditdescription}`;
     appendDataToFile('invoice.txt', invoiceData);
 
     db.run('INSERT INTO invoices (customer_id, seller_id, title, date, money_type, goodsname, amount, price, discount, desc) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
-    [customerNumber, sellerNumber, invoiceTitle, invoiceDate, currency, commoditName, customerNo, unitprice, discount, commoditdescription],  
+    [customerNumber, sellerNumber, invoiceTitle, invoiceDate, currency, commoditName, customerNoValue, unitPrice, discountAmount, commoditdescription],  
         function(err) {
             if (err) {
                 res.status(400).json({ "error": err.message });
                 return;
             }
-            // res.json({ "invoice_id": this.lastID });
             res.redirect('/');
-    
         }
     );
 });
+
 
 
 app.listen(3000, () => {

@@ -52,16 +52,16 @@
                         <h5 class="form-details">مشخصات فروشنده</h5>
                         <div class="row">
                             <div class="col-md-3">
-                                <label for="sellerNumber">کد ملی</label>
-                                <input type="text" class="form-control" id="sellerNumber" name="sellerNumber" required>
+                                <label for="sellerCode">کد ملی</label>
+                                <input type="text" class="form-control" id="sellerCode" name="sellerCode" required>
                             </div>
                             <div class="col-md-3">
                                 <label for="sellerName">نام فروشنده</label>
                                 <input type="text" class="form-control" id="sellerName" name="sellerName" readonly>
                             </div>
                             <div class="col-md-3">
-                                <label for="sellerAddress">تلفن همراه</label>
-                                <input type="text" class="form-control" id="sellerAddress" name="sellerAddress">
+                                <label for="sellerNumber">تلفن همراه</label>
+                                <input type="text" class="form-control" id="sellerNumber" name="sellerNumber">
                             </div>
                             <div class="col-md-3">
                                 <label for="sellerAddress">آدرس</label>
@@ -74,20 +74,20 @@
                         <h5 class="form-details">مشخصات خریدار</h5>
                         <div class="row">
                             <div class="col-md-3">
-                                <label for="customerNumber">کد ملی</label>
-                                <input type="text" class="form-control" id="customerNumber" name="customerNumber" required>
+                                <label for="customerCode">کد ملی</label>
+                                <input type="text" class="form-control" id="customerCode" name="customerCode" required>
                             </div>
                             <div class="col-md-3">
                                 <label for="customerName">نام خریدار</label>
                                 <input type="text" class="form-control" id="customerName" name="customerName" readonly>
                             </div>
                             <div class="col-md-3">
-                                <label for="sellerAddress">تلفن همراه</label>
-                                <input type="text" class="form-control" id="sellerAddress" name="sellerAddress">
+                                <label for="customerNumber">تلفن همراه</label>
+                                <input type="text" class="form-control" id="customerNumber" name="customerNumber">
                             </div>
                             <div class="col-md-3">
-                                <label for="sellerAddress">آدرس</label>
-                                <input type="text" class="form-control" id="sellerAddress" name="sellerAddress">
+                                <label for="customerAddress">آدرس</label>
+                                <input type="text" class="form-control" id="customerAddress" name="customerAddress">
                             </div>
                         </div>
                     </div>
@@ -117,6 +117,9 @@
                                         <label for="totalprice">قیمت کل</label>
                                         <input type="number" class="form-control" id="totalprice" name="totalprice" readonly>
                                     </div>
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn btn-danger remove-commodity" style="margin-top: 2rem;background-color:#ca1e26; border-color: #ca1e26;">حذف</button>
+                                    </div>
                                 </div>
                                 <br>
                                 <div class="row">
@@ -132,9 +135,7 @@
                             <div class="col-md-2">
                                 <button type="button" class="btn btn-primary add-commodity" style="background-color: #4CAF50; border-color: #4CAF50;">افزودن کالا</button>
                             </div>
-                            <div class="col-md-2">
-                                <button type="submit" class="btn btn-primary submit-all-forms" style="background-color: #4CAF50; border-color: #4CAF50;">ثبت نهایی</button>
-                            </div>
+                        
                         </div>
                     </div>
                     <br><br>
@@ -162,6 +163,11 @@
                         </div>
                     </div>
                     <br><br>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary submit-all-forms" style="background-color: #4CAF50; border-color: #4CAF50;">ثبت نهایی</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

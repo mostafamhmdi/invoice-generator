@@ -101,25 +101,48 @@ $(document).on('click', '.submit-all-forms', function() {
 });
 
 
+$(document).ready(function() {
+    $('#sellerCode').on('change', function() {
+        const idcode = $(this).val();
+        $.ajax({
+            url: '/check-seller',
+            method: 'GET',
+            data: { idcode },
+            success: function(data) {
+                $('#sellerName').val(data.name);
+                $('#sellerNumber').val(data.mobileNum);
+                $('#sellerAddress').val(data.address);
+                
+            },
+            error: function(xhr) {
+                if (xhr.status === 404) {
+                    alert('Seller not found. Please add the seller.');
+                } else {
+                    alert('An error occurred while checking the seller.');
+                }
+            }
+        });
+    });
 
-// const invoiceForm = document.getElementById('invoiceForm');
-
-// invoiceForm.addEventListener('submit', async (e) => {
-//     e.preventDefault();
-//     const db = await initDatabase();
-//     const invoiceId = document.getElementById('invoiceId').value;
-//     const customerId = document.getElementById('customerId').value;
-//     const sellerId = document.getElementById('sellerId').value;
-//     const items = JSON.parse(document.getElementById('items').value);
-//     const totalAmount = parseFloat(document.getElementById('totalAmount').value);
-
-//     await db.invoices.insert({
-//         id: invoiceId,
-//         customerId: customerId,
-//         sellerId: sellerId,
-//         items: items,
-//         totalAmount: totalAmount,
-//     });
-
-//     alert('Invoice added!');
-// });
+    $('#customerCode').on('change', function() {
+        const idcode = $(this).val();
+        $.ajax({
+            url: '/check-buyer',
+            method: 'GET',
+            data: { idcode },
+            success: function(data) {
+                $('#customerName').val(data.name);
+                $('#customerNumber').val(data.mobileNum);
+                $('#customerAddress').val(data.address);
+                
+            },
+            error: function(xhr) {
+                if (xhr.status === 404) {
+                    alert('Buyer not found. Please add the buyer.');
+                } else {
+                    alert('An error occurred while checking the buyer.');
+                }
+            }
+        });
+    });
+});
