@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const PDFDocument = require('pdfkit');
 const path = require('path');
 const fs = require('fs');
 const db = require('./database');
+const { Table } = require('pdfkit-table');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -133,7 +135,8 @@ app.post('/invoice.html', (req, res) => {
 });
 
 
-
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
+
+

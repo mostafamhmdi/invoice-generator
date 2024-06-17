@@ -1,31 +1,56 @@
-// import initDatabase from '../database.js';
 $(document).ready(function() {
     function isFormFilled(form) {
         var isValid = true;
         form.find('input, select, textarea').each(function() {
             if ($(this).prop('required') && !$(this).val()) {
                 isValid = false;
-                return false; 
+                return false;
             }
         });
         return isValid;
     }
 
-
     function submitAllForms() {
+        var allFormsValid = true;
         $('.invoice form').each(function() {
             if (!isFormFilled($(this))) {
                 alert("لطفا فیلد های اجباری را پر کنید."); 
-                return false; 
+                allFormsValid = false;
+                return false;
             }
-            $(this).submit(); 
         });
+
+        if (allFormsValid) {
+            $('.invoice form').each(function() {
+                // Optional: Perform any additional form submission logic here
+                console.log($(this).serialize());
+            });
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    $('.submit-all-forms').click(function() {
-        submitAllForms(); 
+    $('.submit-all-forms').click(function(event) {
+        event.preventDefault(); // Prevent default form submission
+        if (submitAllForms()) {
+            const { jsPDF } = window.jspdf;
+
+            html2canvas(document.querySelector('.invoice')).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'pt', 'a4');
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('invoice.pdf');
+            });
+        }
     });
 });
+
+
 
 $(document).ready(function() {
     $('#invoiceDate').persianDatepicker({
@@ -146,3 +171,6 @@ $(document).ready(function() {
         });
     });
 });
+
+
+
